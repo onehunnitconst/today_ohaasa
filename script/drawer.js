@@ -32,10 +32,11 @@ Drawer.prototype.clear = function () {
 }
 
 Drawer.prototype.download = function () {
-  const dataUrl = this.canvas.toDataURL("image/png").replace(/^data:image\/png/, 'data:application/octet-stream');
-
-  let downloadLink = document.createElement('a');
-  downloadLink.setAttribute('download', `ohhasa_${Date.now()}.png`);
-  downloadLink.setAttribute('href', dataUrl);
-  downloadLink.click();
+  this.canvas.toBlob((blob) => {
+    const url = URL.createObjectURL(blob);
+    let downloadLink = document.createElement('a');
+    downloadLink.setAttribute('download', `ohhasa_${Date.now()}.png`);
+    downloadLink.setAttribute('href', url);
+    downloadLink.click();
+  });
 }

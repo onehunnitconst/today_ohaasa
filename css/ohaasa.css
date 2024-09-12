@@ -6,6 +6,8 @@
 }
 
 #canvas {
+  width: 640px;
+  height: 480px;
   border: 1px solid lightgrey;
   margin: 24px 0px;
 }
@@ -27,4 +29,11 @@
 
 #download-button {
   margin: 16px 0px;
+}
+
+@media (max-width: 768px) {
+  #canvas {
+    width: 360px;
+    height: 270px;
+  }
 }
