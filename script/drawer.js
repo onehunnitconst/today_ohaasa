@@ -6,7 +6,7 @@ function Drawer(canvas, ctx) {
 Drawer.prototype.draw = function (rank) {
   const img = new Image();
   img.src = 'https://rawcdn.githack.com/onehunnitconst/ohaasa_image/main/image/ohaasa.png';
-  img.crossOrigin = 'Anonymous';
+  img.crossOrigin = 'anonymous';
 
   const self = this;
 
