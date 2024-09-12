@@ -1,14 +1,16 @@
-function Drawer(ctx) {
+function Drawer(canvas, ctx) {
+  this.canvas = canvas;
   this.ctx = ctx;
 }
 
 Drawer.prototype.draw = function (rank) {
   const img = new Image();
   img.src = 'https://rawcdn.githack.com/onehunnitconst/ohaasa_image/main/image/ohaasa.png';
+  img.crossOrigin = 'Anonymous';
 
   const self = this;
 
-  img.onload = function() {
+  img.onload = function () {
     self.ctx.drawImage(img, 0, 0);
 
     self.ctx.font = "16px Arial";
@@ -27,4 +29,13 @@ Drawer.prototype.draw = function (rank) {
 Drawer.prototype.clear = function () {
   this.ctx.clearRect(0, 0, canvas.width, canvas.height);
   this.ctx.beginPath();
+}
+
+Drawer.prototype.download = function () {
+  const dataUrl = this.canvas.toDataURL("image/png").replace(/^data:image\/png/, 'data:application/octet-stream');
+
+  let downloadLink = document.createElement('a');
+  downloadLink.setAttribute('download', `ohhasa_${Date.now()}.png`);
+  downloadLink.setAttribute('href', dataUrl);
+  downloadLink.click();
 }
