@@ -1,0 +1,30 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#canvas {
+  border: 1px solid lightgrey;
+  margin: 24px 0px;
+}
+
+#title {
+  margin: 24px 0px 0px;
+}
+
+#rank-select-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#rank-select {
+  width: 80px;
+  margin: 0px 16px 4px;
+}
+
+#download-button {
+  margin: 16px 0px;
+}
